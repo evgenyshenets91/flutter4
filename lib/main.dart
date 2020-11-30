@@ -12,57 +12,35 @@ class MyApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Expanded buildKey({Color color, int soundNumber}) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {
+          playSound(soundNumber);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.redAccent[200],
         body: SafeArea(
           child: Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                FlatButton(
-                  color: Colors.redAccent,
-                  onPressed: () {
-                    playSound(1);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.orange,
-                  onPressed: () {
-                    playSound(2);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    playSound(3);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.green,
-                  onPressed: () {
-                    playSound(4);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.blueGrey,
-                  onPressed: () {
-                    playSound(5);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.black,
-                  onPressed: () {
-                    playSound(6);
-                  },
-                ),
-                FlatButton(
-                  color: Colors.pinkAccent,
-                  onPressed: () {
-                    playSound(7);
-                  },
-                ),
+                buildKey(color: Colors.green[200], soundNumber: 1),
+                buildKey(color: Colors.green[300], soundNumber: 2),
+                buildKey(color: Colors.green[400], soundNumber: 3),
+                buildKey(color: Colors.green[500], soundNumber: 4),
+                buildKey(color: Colors.green[600], soundNumber: 5),
+                buildKey(color: Colors.green[700], soundNumber: 6),
+                buildKey(color: Colors.green[800], soundNumber: 7),
               ],
             ),
           ),
